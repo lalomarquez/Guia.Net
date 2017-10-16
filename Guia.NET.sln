@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{93EEFD92-573C-48A8-BCEB-A725CC349E3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WForms", "WForms\WForms.csproj", "{C4F52535-26DE-4BE0-AFDA-83C7C2741576}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C.BLL", "C.BLL\C.BLL.csproj", "{50A3725A-0509-4817-BF9A-4A84CEEC7BB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C.BO", "C.BO\C.BO.csproj", "{B0C132C0-761F-4456-AE79-9258896F1B7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C.DAL", "C.DAL\C.DAL.csproj", "{9A3B4420-B7BF-4540-94F6-E09A59E5C837}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C.Helpers", "C.Helpers\C.Helpers.csproj", "{D352D662-DA03-4F83-8BB7-2398D3E3A18D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93EEFD92-573C-48A8-BCEB-A725CC349E3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93EEFD92-573C-48A8-BCEB-A725CC349E3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93EEFD92-573C-48A8-BCEB-A725CC349E3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93EEFD92-573C-48A8-BCEB-A725CC349E3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4F52535-26DE-4BE0-AFDA-83C7C2741576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4F52535-26DE-4BE0-AFDA-83C7C2741576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4F52535-26DE-4BE0-AFDA-83C7C2741576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4F52535-26DE-4BE0-AFDA-83C7C2741576}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50A3725A-0509-4817-BF9A-4A84CEEC7BB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50A3725A-0509-4817-BF9A-4A84CEEC7BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50A3725A-0509-4817-BF9A-4A84CEEC7BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50A3725A-0509-4817-BF9A-4A84CEEC7BB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0C132C0-761F-4456-AE79-9258896F1B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0C132C0-761F-4456-AE79-9258896F1B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0C132C0-761F-4456-AE79-9258896F1B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0C132C0-761F-4456-AE79-9258896F1B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A3B4420-B7BF-4540-94F6-E09A59E5C837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A3B4420-B7BF-4540-94F6-E09A59E5C837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A3B4420-B7BF-4540-94F6-E09A59E5C837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A3B4420-B7BF-4540-94F6-E09A59E5C837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D352D662-DA03-4F83-8BB7-2398D3E3A18D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D352D662-DA03-4F83-8BB7-2398D3E3A18D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D352D662-DA03-4F83-8BB7-2398D3E3A18D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D352D662-DA03-4F83-8BB7-2398D3E3A18D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45
+		SolutionGuid = {A9CF2D8C-2CF2-437D-BB99-27625A926A4A}
+	EndGlobalSection
+EndGlobal
