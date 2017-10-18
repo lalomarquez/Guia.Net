@@ -4,6 +4,8 @@ using System.Data;
 using C.Helpers;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data.Common;
+using System.Text;
+using System.Collections.Generic;
 
 namespace C.DAL.Consultas
 {
@@ -191,28 +193,67 @@ namespace C.DAL.Consultas
             }            
         }
 
-        #region Consulta Generica.
-        public bool ConsultaGenerica(string query)
-        {
-            bool result = false;
+        private string ObtenerDatosConsulta(IDataReader reader)
+        {            
+            var sb = new StringBuilder();
+
             try
             {
-                using (IDataReader reader = sqlDB.ExecuteReader(CommandType.Text, query))
+                while (reader.Read())
                 {
-                    DisplayRowValues(reader);
-                    result = true;
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        Console.WriteLine("{0} = {1}", reader.GetName(i), reader[i].ToString());
+                        sb.Append(reader[i].ToString());
+                    }                    
+                    if (reader != null)
+                        reader.Close();
                 }
             }
             catch (Exception ex)
             {
-                result = false;
                 Console.WriteLine("Ha ocurrido una Exception :( " + ex);
             }
-            finally
+            return sb.ToString();
+        }
+
+        #region Consulta Generica.
+        public string ConsultaGenerica(string query)
+        {            
+            string datos = string.Empty;
+
+            try
             {
-                Console.WriteLine("Fin consulta generica.");
+                using (IDataReader reader = sqlDB.ExecuteReader(CommandType.Text, query))
+                {
+                    datos = ObtenerDatosConsulta(reader);                    
+                }
             }
-            return result;
+            catch (Exception ex)
+            {
+                throw;
+                //Console.WriteLine("Ha ocurrido una Exception :( " + ex);
+            }            
+            return datos;
+        }
+
+        public DataTable ConsultaDataTable(string query)
+        {                                    
+            DataTable dt = new DataTable();
+            try
+            {                
+                using (DbCommand cmd = sqlDB.GetSqlStringCommand(query))
+                {
+                    dt = sqlDB.ExecuteDataSet(cmd).Tables[0];
+                }                
+            }
+            catch (Exception ex)
+            {
+                dt = null;                
+                throw;                
+            }
+
+            return dt;
         }
         #endregion
     }

@@ -3,24 +3,36 @@ using C.BLL.Demos;
 using C.BO;
 using C.Helpers;
 using System;
+using System.Collections;
 
 namespace ConsoleTest
 {
     class Program
     {
         static void Main(string[] args)
-        {
+            {
             Print.WriteInicioFin("<<<<**************INICIO**************>>>>");
 
-            //MetodosGenericos();
-            //TiposParametros();
+            Excel();
 
             Print.WriteInicioFin("<<<<**************FIN**************>>>>");
             Console.ReadKey();
+        }
 
-            //LogicaSucursales objSuc = new LogicaSucursales();
-            //objSuc.ConsultasSucursales();
-            //objSuc.JsonData();                                 
+        public static void Excel()
+        {
+            var r = new Random();
+            var suc = new LogicaSucursales();            
+            var boExcel = new ArchivoExcel();
+            boExcel.extencion = ".xlsx";
+            boExcel.nombreArchivo = "prueba_" + r.Next(1, 999).ToString();
+            boExcel.encabezadoArchivo = "Almacenes";
+            boExcel.path = @"C:\Users\TNDeveloper\Desktop\excel\";
+            boExcel.inicioColumna = 2;
+            boExcel.inicioFila = 6;            
+            //Console.WriteLine(boExcel.ToString());
+
+            suc.GenerarReporteExcel("SELECT top 50 * FROM ADM_PREGUNTAS", boExcel);
         }
 
         public static void TiposParametros()

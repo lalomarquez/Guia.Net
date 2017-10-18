@@ -3,12 +3,16 @@ using C.DAL.Consultas;
 using Newtonsoft.Json;
 using System;
 using System.Data;
+using C.BO;
+using C.Helpers;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace C.BLL.Rules
 {
     public class LogicaSucursales
     {
-        ConSucursales dal = new ConSucursales();
+        ConSucursales dal = new ConSucursales();        
 
         public void ConsultasSucursales()
         {
@@ -62,6 +66,33 @@ namespace C.BLL.Rules
                 Console.WriteLine("Ha ocurrido una Exception :( " + ex);
             }
             return result;
+        }
+
+        public string GenerarReporteExcel(string query, ArchivoExcel excel)
+        {
+            string datos = string.Empty;
+            var helperExcel = new HelperExcel();            
+            var dt = new DataTable();            
+
+            try
+            {
+                dt = dal.ConsultaDataTable(query);                
+                if (dt != null)
+                {
+                    if (dt.Rows.Count > 0)
+                    {
+                        helperExcel.GenerarExcel(dt, excel);
+                    }
+                }    
+                else
+                    Console.WriteLine("[dt] is null");
+            }
+            catch (Exception ex)
+            {                
+                Console.WriteLine("Ha ocurrido una Exception :( ");
+                Print.WriteError(ex.ToString());
+            }
+            return datos;
         }
     }
 }

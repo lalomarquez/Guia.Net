@@ -49,6 +49,12 @@ namespace C.BLL.Demos
             return i;
         }
 
+        /// <summary>
+        /// Utilizando parametro OUT.
+        /// </summary>
+        /// <param name="i"></param>
+        /// <param name="paramA"></param>
+        /// <param name="paramB"></param>
         public void ParametroxOut(out int i, out string paramA, out string paramB)
         {
             Console.WriteLine("--Se puede regresar mas de un valor.");
@@ -66,6 +72,7 @@ namespace C.BLL.Demos
                 Print.WriteError("Ha ocurrido una Exception :( " + ex);
             }
         }
+        
         /// <summary>
         /// Utilizando parametro opcional.
         /// </summary>
