@@ -3,7 +3,7 @@ using C.BLL.Demos;
 using C.BO;
 using C.Helpers;
 using System;
-using System.Collections;
+using FileHelpers;
 
 namespace ConsoleTest
 {
@@ -13,7 +13,7 @@ namespace ConsoleTest
             {
             Print.WriteInicioFin("<<<<**************INICIO**************>>>>");
 
-            Excel();
+            LeerCSVconFileHelpers();
 
             Print.WriteInicioFin("<<<<**************FIN**************>>>>");
             Console.ReadKey();
@@ -110,6 +110,51 @@ namespace ConsoleTest
             //csv.LeerItemCSV(load);                
             //csv.LeerItemFarmaciaCSV(load);
         }
-       
+
+        /// <summary>
+        /// Leer arhico csv con libreria FileHelpers
+        /// </summary>
+        public static void LeerCSVconFileHelpers()
+        {
+            /*var detector = new FileHelpers.Detection.SmartFormatDetector();
+            var formats = detector.DetectFileFormat(@"C:\Users\TNDeveloper\Desktop\excel\datos.csv");
+            foreach (var format in formats)
+            {
+                Console.WriteLine("Format Detected, confidence:" + format.Confidence + "%");
+                var delimited = format.ClassBuilderAsDelimited;
+
+                Console.WriteLine("    Delimiter:" + delimited.Delimiter);
+                Console.WriteLine("    Fields:");
+
+                foreach (var field in delimited.Fields)
+                {
+                    Console.WriteLine("        " + field.FieldName + ": " + field.FieldType);
+                }               
+            }*/
+
+            try
+            {
+                var engine = new FileHelperEngine<CatEdosFileHelper>();
+                var records = engine.ReadFile(@"C:\Users\TNDeveloper\Desktop\excel\datos.csv");
+                //records = null;
+                if (records != null)
+                {
+                    foreach (var record in records)
+                    {
+                        Console.WriteLine(string.Format("idEstado: {0}", (!string.IsNullOrEmpty(record.ID_Estado)) ? record.ID_Estado : "[NO HAY DATOS EN CSV]"));
+                        Console.WriteLine(string.Format("idMunicipio: {0}", record.ID_Municipio));
+                        Console.WriteLine(string.Format("Estado: {0}", record.NombreEstado));
+                        Console.WriteLine(string.Format("Municipio: {0}", record.NombreMunicipio));
+                        Print.WriteSalida("==========================================================");
+                    }
+                }
+                else
+                    Console.WriteLine("El objeto es null!!");
+            }
+            catch (Exception ex)
+            {
+                Print.WriteError(ex.ToString());
+            }            
+        }
     }
 }

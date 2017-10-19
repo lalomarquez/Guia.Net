@@ -1,11 +1,10 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Data;
+﻿using C.Helpers;
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System;
 using System.Data;
-using C.Helpers;
-using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data.Common;
 using System.Text;
-using System.Collections.Generic;
 
 namespace C.DAL.Consultas
 {
