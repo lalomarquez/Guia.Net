@@ -15,9 +15,10 @@ namespace C.Helpers
         public static void WriteSalida(string value, params string[] param)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(value.PadRight(Console.WindowWidth - 1));            
+            //Console.Write(value.PadRight(Console.WindowWidth - 1));            
+            Console.Write(value);
             Console.ResetColor();
-        }
+        }        
 
         public static void WriteEntrada(string value)
         {
@@ -30,6 +31,13 @@ namespace C.Helpers
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(value.PadRight(Console.WindowWidth - 1));            
+            Console.ResetColor();
+        }
+
+        public static void WriteComent(string value, params string[] param)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(value.PadRight(Console.WindowWidth - 1));
             Console.ResetColor();
         }
     }

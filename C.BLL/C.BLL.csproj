@@ -44,8 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basic\Conversiones.cs" />
+    <Compile Include="Basic\Metodos.cs" />
+    <Compile Include="Basic\Sentencias.cs" />
+    <Compile Include="Demos\EjemplosEnums.cs" />
+    <Compile Include="Demos\ExcepcionPersonalizada.cs" />
     <Compile Include="Demos\MetodosGenericos.cs" />
+    <Compile Include="Basic\Operadores.cs" />
+    <Compile Include="Demos\PalabrasReservadas.cs" />
     <Compile Include="Demos\TiposParametros.cs" />
+    <Compile Include="PilaresPOO\Abstraccion.cs" />
+    <Compile Include="PilaresPOO\Encapsulamiento.cs" />
+    <Compile Include="PilaresPOO\Herencia.cs" />
+    <Compile Include="PilaresPOO\Poliformismo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\LogicaCSV.cs" />
     <Compile Include="Rules\LogicaSucursales.cs" />
@@ -63,6 +74,9 @@
       <Project>{d352d662-da03-4f83-8bb7-2398d3e3a18d}</Project>
       <Name>C.Helpers</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Demos\MetodoStringFormat.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

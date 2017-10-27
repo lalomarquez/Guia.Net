@@ -1,9 +1,12 @@
 ﻿using C.BLL.Rules;
 using C.BLL.Demos;
+using C.BLL.Basic;
 using C.BO;
 using C.Helpers;
 using System;
 using FileHelpers;
+using System.Collections.Generic;
+using C.BLL.PilaresPOO;
 
 namespace ConsoleTest
 {
@@ -11,12 +14,94 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
             {
-            Print.WriteInicioFin("<<<<**************INICIO**************>>>>");
+            //Print.WriteInicioFin("<<<<**************INICIO**************>>>>");
 
-            LeerCSVconFileHelpers();
+            POOHerencia();
 
-            Print.WriteInicioFin("<<<<**************FIN**************>>>>");
+            //Print.WriteInicioFin("<<<<**************FIN**************>>>>");
             Console.ReadKey();
+        }
+
+        public static void POOHerencia()
+        {
+            var herencia = new Herencia();
+            herencia.Hombre();
+            herencia.Mujer();
+        }
+        public static void CallMetodos()
+        {
+            var m = new Metodos();
+            m.Mensaje("Como estas?");
+        }
+
+        public static void Sentencias()
+        {
+            var s = new Sentencias();
+            s.If_Else(20);
+            s.Switch(20);
+            s.While(20);
+            s.DoWhile();
+        }
+
+        public static void EjemplosEnums()
+        {
+            //Console.WriteLine(OperatingSystems.Linux);
+            Print.WriteSalida(OperatingSystems.Linux.ToString());
+
+            var alarmGoesOffOn = DaysOfWeek.Mon | DaysOfWeek.Wed | DaysOfWeek.Fri;
+            Print.WriteSalida(DaysOfWeek.Fri.ToString());            
+            Console.WriteLine((int)DaysOfWeek.Fri);
+            Console.WriteLine("Alarm goes off on: " + alarmGoesOffOn);
+
+            string[] arr = DaysOfWeek.GetNames(typeof(DaysOfWeek));
+            foreach (string s in arr)
+                Print.WriteSalida(s);                
+        }
+
+        public static void MetodoStringFormat()
+        {
+            var obj = new MetodoStringFormat();
+            obj.Saludo("señor locutor");
+
+        }
+
+        public static void PalabraReservadaYield()
+        {            
+            string numeros = string.Empty;
+            var listNumeros = new List<int>();
+
+            try
+            {
+                PalabrasReservadas.CrearLoopNumeros(1, 100, 30, out numeros);                
+                Console.WriteLine("Numeros aleatoreos: {0}", numeros.TrimEnd(','));
+
+                string[] arrayNumeros = numeros.Split(',');
+
+                foreach (var item in arrayNumeros)
+                {                    
+                    if (!string.IsNullOrEmpty(item))
+                    {
+                        int numero = Int32.Parse((string)item);
+                        listNumeros.Add(numero);
+                    }
+                }
+                
+                Print.WriteEntrada("Filtro SIN Yield");
+                foreach (var item in PalabrasReservadas.FiltroSinYield(listNumeros))
+                {                    
+                    Print.WriteSalida(item.ToString());
+                }
+
+                Print.WriteEntrada("Filtro CON Yield");                
+                foreach (var item in PalabrasReservadas.FiltroConYield(listNumeros))
+                {
+                    Print.WriteSalida(item.ToString());
+                }                
+            }
+            catch (Exception ex)
+            {
+                Print.WriteError(ex.ToString());
+            }            
         }
 
         public static void Excel()
@@ -70,7 +155,7 @@ namespace ConsoleTest
             tp.ParametroUtilizandoMetodoSobrecargado(10, 15);
 
             Console.WriteLine("********numero variable de parametros********");
-            //tp.NumeroVariableParametros(10);
+            tp.NumeroVariableParametros(10);
             tp.NumeroVariableParametros(10, 1);
             tp.NumeroVariableParametros(10, 1, 19);
         }

@@ -9,6 +9,12 @@ namespace C.BLL.Demos
     public class MetodosGenericos
     {
 
+        /// <summary>
+        /// Serializar cualquier BO
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="bo"></param>
+        /// <returns></returns>
         public string SerializarGenerico<T>(T bo)
         {
             string result = string.Empty;
@@ -31,6 +37,11 @@ namespace C.BLL.Demos
             }
         }
 
+        /// <summary>
+        /// /// Serializar bo.CatEdos
+        /// </summary>
+        /// <param name="edos"></param>
+        /// <returns></returns>
         public string Serializar(CatEdos edos)
         {
             string result = string.Empty;
@@ -53,6 +64,11 @@ namespace C.BLL.Demos
             }            
         }
 
+        /// <summary>
+        /// Serializar bo.CatFarmacias
+        /// </summary>
+        /// <param name="farm"></param>
+        /// <returns></returns>
         public string Serializar(CatFarmacias farm)
         {
             string result = string.Empty;

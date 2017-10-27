@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enumeradores.cs" />
     <Compile Include="HelperExcel.cs" />
     <Compile Include="Print.cs" />
     <Compile Include="ConstantesDB.cs" />
