@@ -7,6 +7,9 @@ using System;
 using FileHelpers;
 using System.Collections.Generic;
 using C.BLL.PilaresPOO;
+using C.BLL.PilaresPOO.Herencia;
+using C.BLL.PilaresPOO.Poliformismo;
+using static C.BLL.Basic.Delegados;
 
 namespace ConsoleTest
 {
@@ -14,24 +17,76 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
             {
-            //Print.WriteInicioFin("<<<<**************INICIO**************>>>>");
+            //Print.WriteInicioFin("<<<<**************INICIO**************>>>>");            
 
-            POOHerencia();
+            CallDelegados();
 
             //Print.WriteInicioFin("<<<<**************FIN**************>>>>");
             Console.ReadKey();
         }
 
+        public static void CallDelegados()
+        {
+            var delegado = new SumandoSecuenciaNumeros(SumandoSecuencia);
+            var bll = new Delegados();
+            bll.CallDelegado(delegado);
+        }
+
+        private static string SumandoSecuencia(int maxNum)
+        {
+            int result = 0;
+
+            for (int i = 1; i <= maxNum; i++)
+                result += i;
+
+            return result.ToString();
+        }
+
+        public static void Structs()
+        {
+            var bll = new BLL_Structs();
+            bll.CallStructs();
+            bll.CallClass();
+        }
+
+        public static void Poliformismo()
+        {
+            var bll = new BLLPoliformismo();            
+            Print.WriteComent("Poliformismo X Abstraccion");
+            bll.PoliformismoXAbstraccion();
+            Console.WriteLine("******************************");
+            Print.WriteEntrada("Poliformismo X Interface");
+            bll.PoliformismoXInterface();
+        }
+
+        public static void POOHerencia_MethodOverride()
+        {
+            var bll = new BLLHerenciaOverride();
+            bll.PruebasTrabajadorFull();
+            bll.PruebasTrabajadorTemporal();
+        }
+
+        public static void POOHerencia_MethodHidden()
+        {
+            var bll = new BLLHerenciaHiding();
+            bll.PruebasTiempoCompleto();
+            bll.PruebasTiempoParcial();
+        }
+
         public static void POOHerencia()
         {
-            var herencia = new Herencia();
+            var herencia = new BLLHerencia();
             herencia.Hombre();
             herencia.Mujer();
         }
+
         public static void CallMetodos()
         {
             var m = new Metodos();
             m.Mensaje("Como estas?");
+
+            var cd = new ClaseDerivada();
+            cd.Implementacion();
         }
 
         public static void Sentencias()
@@ -183,6 +238,30 @@ namespace ConsoleTest
 
             Console.WriteLine(bll.SerializarGenerico<CatEdos>(boEdos));
             Console.WriteLine(bll.SerializarGenerico<CatFarmacias>(boFarm));
+        }
+
+        public static void ClsGenericaMtdGenerico()
+        {
+            List<string> str_input = new List<string>();
+            str_input.Add("uno");
+            str_input.Add("dos");
+
+            List<int> int_input = new List<int>();
+            int_input.Add(1);
+            int_input.Add(2);
+
+            List<float> float_input = new List<float>();
+            float_input.Add(1.001f);
+            float_input.Add(2.002f);
+
+            List<decimal> decimal_input = new List<decimal>();
+            decimal_input.Add(0.001M);
+            decimal_input.Add(0.002M);
+
+            var str = MetodosGenericos<string>.GetGeneric(str_input);
+            var entero = MetodosGenericos<int>.GetGeneric(int_input);
+            var flotante = MetodosGenericos<float>.GetGeneric(float_input);
+            var decimales = MetodosGenericos<decimal>.GetGeneric(decimal_input);
         }
 
         /// <summary>

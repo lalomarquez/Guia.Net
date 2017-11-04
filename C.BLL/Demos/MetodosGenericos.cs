@@ -3,6 +3,7 @@ using C.BO;
 using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
+using System.Collections.Generic;
 
 namespace C.BLL.Demos
 {
@@ -89,6 +90,18 @@ namespace C.BLL.Demos
                 Console.WriteLine("Ha ocurrido una Exception :( " + ex);
                 return ex.ToString();
             }
+        }
+    }
+
+    public class MetodosGenericos<T>
+    {
+        public static List<T> GetGeneric(List<T> input)
+        {
+            foreach (var item in input)
+            {
+                Console.WriteLine(String.Format("List<T>: {0}", item.ToString()));
+            }
+            return input;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using C.Helpers;
+using System;
 
 namespace C.BLL.Basic
 {
@@ -44,7 +45,27 @@ namespace C.BLL.Basic
             Print.WriteComent("DESPUES");
             Print.WriteSalida(string.Format("valor de [i] : '{0}' ", i));
             Print.WriteSalida(string.Format("valor de [j] : '{0}' ", j));
-        }
 
+
+            Console.WriteLine();
+            string name = null;// "nombre";
+            string personName;
+
+            Print.WriteInicioFin("forma ordinaria");            
+            
+            if (name == null)
+                personName = "no name";
+            else
+                personName = name;
+            Console.WriteLine(personName);
+            
+            Print.WriteInicioFin("forma operador ternario");
+            personName = name == null ? "no name" : name;
+            Console.WriteLine(personName);
+
+            Print.WriteInicioFin("forma Null coalescing");
+            personName = name ?? "no name";
+            Console.WriteLine(personName);
+        }
     }
 }

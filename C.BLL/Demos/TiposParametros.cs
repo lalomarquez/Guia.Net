@@ -97,6 +97,7 @@ namespace C.BLL.Demos
             return i + j;
         }
 
+        #region SOBRECARGA DE METODOS        
         /// <summary>
         /// Metodo sobrecargado, un parametro
         /// </summary>
@@ -119,6 +120,7 @@ namespace C.BLL.Demos
             Console.WriteLine("Suma: {0}", firstNumber + secondNumber);
             return firstNumber + secondNumber;
         }
+        #endregion
 
         /// <summary>
         /// Utilizando arreglo de parametro.

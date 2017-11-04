@@ -2,9 +2,14 @@
 using C.Helpers;
 using System.Collections.Generic;
 
-namespace C.BLL.PilaresPOO
+namespace C.BLL.PilaresPOO.Herencia
 {
-    public class Herencia
+    /*
+     * 
+     * HERENCIA EN SU FORMA BASICA(SIMPLE)     
+     * 
+     */
+    public class BLLHerencia
     {
         public void Mujer()
         {
@@ -40,8 +45,9 @@ namespace C.BLL.PilaresPOO
             Console.Write(" ha trabajado ");
             Print.WriteSalida(string.Format("{0}hrs.", hrs.ToString()));
         }
-    }
+    }   
 
+    #region Class Granjero heredando propiedades de BO.Persona        
     public class Granjero : Persona
     {
         public void HorasTrabajadas(Persona bo, int dias, out int horas)
@@ -55,7 +61,9 @@ namespace C.BLL.PilaresPOO
                 horas = dias * 8;           
         }        
     }
+    #endregion
 
+    #region Class Costurera heredando propiedades de BO.Persona        
     public class Costurera : Persona
     {
         public List<string> Prendas(Persona bo)
@@ -76,7 +84,9 @@ namespace C.BLL.PilaresPOO
             return list;
         }
     }
+    #endregion
 
+    #region Class base BO.Persona    
     public class Persona
     {
         public string tipoPersona { get; set; }
@@ -89,5 +99,5 @@ namespace C.BLL.PilaresPOO
             return string.Format("{0} {1} {2}",nombre,apellPaterno,apellMaterno);
         }
     }
-
+    #endregion  
 }
