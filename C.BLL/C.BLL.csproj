@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Advance\Hilos.cs" />
     <Compile Include="Basic\Conversiones.cs" />
     <Compile Include="Basic\Delegados.cs" />
     <Compile Include="Basic\Estructuras.cs" />

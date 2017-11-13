@@ -10,6 +10,7 @@ using C.BLL.PilaresPOO;
 using C.BLL.PilaresPOO.Herencia;
 using C.BLL.PilaresPOO.Poliformismo;
 using static C.BLL.Basic.Delegados;
+using C.BLL.Advance;
 
 namespace ConsoleTest
 {
@@ -19,10 +20,17 @@ namespace ConsoleTest
             {
             //Print.WriteInicioFin("<<<<**************INICIO**************>>>>");            
 
-            CallDelegados();
+            Hilos();
 
+            //Console.WriteLine("FIN");
             //Print.WriteInicioFin("<<<<**************FIN**************>>>>");
             Console.ReadKey();
+        }
+
+        public static void Hilos()
+        {
+            var h = new Hilos();
+            h.bllAsync();
         }
 
         public static void CallDelegados()
