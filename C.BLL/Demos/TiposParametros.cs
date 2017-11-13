@@ -72,7 +72,64 @@ namespace C.BLL.Demos
                 Print.WriteError("Ha ocurrido una Exception :( " + ex);
             }
         }
-        
+
+        /// <summary>
+        /// Ejemplo de un metodo con parametro out y return
+        /// </summary>
+        /// <param name="idsEncuestas"></param>
+        /// <param name="listUsuarios"></param>
+        /// <returns></returns>
+        //public static ETypeStatusOperacion ObtenerUsuariosxRuta(int[] idsEncuestas, out List<int> listUsuarios)
+        //{
+        //    statusOperacion = ETypeStatusOperacion.InitTask;
+        //    listUsuarios = new List<int>();
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(MainData.StringConnectionAdoNet))
+        //        {
+        //            conn.Open();
+        //            using (SqlCommand cmd = conn.CreateCommand())
+        //            {
+        //                cmd.CommandText = string.Format(@"SELECT  DISTINCT(R.idUsuario)
+        //                                                    FROM  [ADM_ENCUESTAS_ENVIADAS] EE
+        //                                                       INNER JOIN [ADM_DETALLE_RUTAS] DR WITH (nolock) ON DR.idReferencia = EE.idReferencia
+        //                                                          INNER JOIN [ADM_RUTAS] R WITH (nolock) ON R.idRuta = DR.idRuta	                                                            
+        //                                                    WHERE EE.idEncuesta IN({0})
+        //                                                          AND EE.status = 1
+        //                                                       AND DR.status = 1
+        //                                                       AND R.status = 1
+        //                                                    ORDER BY R.idUsuario ASC;", string.Join(",", idsEncuestas));
+        //                cmd.CommandType = CommandType.Text;
+        //                SqlDataReader reader = cmd.ExecuteReader();
+        //                using (reader)
+        //                {
+        //                    if (reader.HasRows)
+        //                    {
+        //                        while (reader.Read())
+        //                            listUsuarios.Add((int)reader["idUsuario"]);
+
+        //                        statusOperacion = ETypeStatusOperacion.Ok;
+        //                    }
+        //                    else
+        //                        statusOperacion = ETypeStatusOperacion.NoContent;
+
+        //                    reader.Close();
+        //                }
+        //                cmd.Dispose();
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine("Exception: {0}", ex);
+        //    }
+        //    return statusOperacion;
+        //}
+
+        //forma de como se llama
+        //var listUsersXEncuesta = new List<int>();
+        //var hiloOne = new Thread(() => { statusOperacion = UsuarioData.ObtenerUsuariosxRuta(info.idsEncuesta.ToArray(), out listUsersXEncuesta); });
+
         /// <summary>
         /// Utilizando parametro opcional.
         /// </summary>
